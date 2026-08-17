@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>teste</title>
+        <style>
+        .mosaico {
+            display: flex;
+            flex-wrap: wrap;
+            width: 1350px;
+        }
+        .quadrado {
+            background-image: url("imagens/wallpaper003.jpg");
+            background-size: 1350px 900px;
+            width: 450px;
+            height: 450px;
+        }
+        #q1 { background-position: 0 0; }
+        #q2 { background-position: -450px 0; }
+        #q3 { background-position: -900px 0; }
+        #q4 { background-position: 0 -450px; }
+        #q5 { background-position: -450px -450px; }
+        #q6 { background-position: -900px -450px; }
+        </style>
+</head>
+<body>
+    <div class="mosaico">
+    <div class="quadrado" id="q1"></div>
+    <div class="quadrado" id="q2"></div>
+    <div class="quadrado" id="q3"></div>
+    <div class="quadrado" id="q4"></div>
+    <div class="quadrado" id="q5"></div>
+    <div class="quadrado" id="q6"></div>
+</div>
+</body>
+</html>
