@@ -9,7 +9,7 @@
 }
 
 body{
-    background-color: darkgrey;
+    background-color: rgb(255, 255, 255);
     min-height: 100vh;
 }
 
@@ -61,6 +61,7 @@ section {
     font-family: var(--font-secundary);
     line-height: 2em;
     font-size: 3.5vw;
+    box-shadow: inset 2px 2px 0px rgba(0, 0, 0, 0.411);
 }
 
 section.imagem p{
