@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acesso Restrito - Tela de Login</title>
+  <style>
+    /* Reset e Configurações Globais */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #0d1117;
+      color: #c9d1d9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Card de Login */
+    .login-card {
+      background-color: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 12px;
+      padding: 40px 32px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      position: relative;
+    }
+
+    .login-card h2 {
+      text-align: center;
+      color: #ffffff;
+      margin-bottom: 24px;
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    /* Formulário */
+    .input-group {
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .input-group label {
+      font-size: 14px;
+      margin-bottom: 8px;
+      color: #8b949e;
+    }
+
+    .input-group input {
+      background-color: #0d1117;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 10px 14px;
+      color: #ffffff;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .input-group input:focus {
+      border-color: #58a6ff;
+    }
+
+    /* Estado de Erro na Senha */
+    .input-group.error input {
+      border-color: #f85149;
+    }
+
+    .error-message {
+      color: #f85149;
+      font-size: 12px;
+      margin-top: 6px;
+      display: none;
+    }
+
+    .input-group.error .error-message {
+      display: block;
+    }
+
+    /* ÁREA DO BOTÃO (Para controlar o movimento) */
+    .button-container {
+      margin-top: 30px;
+      height: 45px;
+      position: relative;
+    }
+
+    /* Botão estilo 'LOGAR' */
+    #btn-logar {
+      background-color: #238636;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      padding: 12px;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.2s ease, top 0.15s ease, left 0.15s ease;
+    }
+
+    #btn-logar:hover {
+      background-color: #2ea043;
+    }
+
+    /* Classe ativada no JS quando o botão deve 'fugir' */
+    #btn-logar.runaway {
+      position: fixed;
+      width: 140px;
+      z-index: 1000;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-card">
+    <h2>Acesso Restrito</h2>
+    
+    <form id="login-form" onsubmit="event.preventDefault();">
+      <!-- E-mail -->
+      <div class="input-group">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" value="usuario@exemplo.com" placeholder="seu@email.com">
+      </div>
+
+      <!-- Senha -->
+      <div class="input-group" id="senha-group">
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" value="12345678" placeholder="Digite sua senha">
+        <span class="error-message">Senha Incorreta!</span>
+      </div>
+
+      <!-- Botão -->
+      <div class="button-container">
+        <button id="btn-logar">LOGAR</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    const senhaInput = document.getElementById('senha');
+    const senhaGroup = document.getElementById('senha-group');
+    const btnLogar = document.getElementById('btn-logar');
+
+    // Senha "correta" simulada
+    const SENHA_CORRETA = "admin123";
+
+    // Verifica a senha a cada digitação ou clique
+    function verificarSenha() {
+      if (senhaInput.value !== SENHA_CORRETA) {
+        senhaGroup.classList.add('error');
+        return false;
+      } else {
+        senhaGroup.classList.remove('error');
+        // Reseta a posição do botão se a senha estiver certa
+        btnLogar.classList.remove('runaway');
+        btnLogar.style.left = '';
+        btnLogar.style.top = '';
+        return true;
+      }
+    }
+
+    // Executa a verificação inicial (como no mockup, a senha começa "errada")
+    verificarSenha();
+    senhaInput.addEventListener('input', verificarSenha);
+
+    // Efeito do botão "fugindo" do hover se a senha estiver errada
+    btnLogar.addEventListener('mouseover', () => {
+      const eSenhaCorreta = verificarSenha();
+
+      if (!eSenhaCorreta) {
+        btnLogar.classList.add('runaway');
+
+        // Calcula posições aleatórias na tela garantindo que o botão não saia da visão
+        const margin = 20;
+        const maxX = window.innerWidth - btnLogar.offsetWidth - margin;
+        const maxY = window.innerHeight - btnLogar.offsetHeight - margin;
+
+        const randomX = Math.max(margin, Math.floor(Math.random() * maxX));
+        const randomY = Math.max(margin, Math.floor(Math.random() * maxY));
+
+        btnLogar.style.left = `${randomX}px`;
+        btnLogar.style.top = `${randomY}px`;
+      }
+    });
+
+    // Se acertar a senha (digite 'admin123'), o botão volta ao normal e aceita o clique
+    btnLogar.addEventListener('click', () => {
+      if (verificarSenha()) {
+        alert('Login efetuado com sucesso!');
+      }
+    });
+  </script>
+
+</body>
+</html>
