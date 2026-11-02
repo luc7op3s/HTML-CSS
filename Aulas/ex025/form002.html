@@ -7,10 +7,21 @@
 </head>
 <body>
     <h1>Teste de formulario</h1>
-    <form action="cadastro.php" method="get">
+    <form action="cadastro.php" method="post" autocomplete="off">
         <p>
+           <!-- minlength e maxlength são o minimo e o maximo de caracteres dentro de um cadastro, placeholder é o que aparece dentro da caixa-->
             <label for="iusu">Usuario</label>
-            <input type="text" name="usu" id="iusu">
+            <input type="text" name="usu" id="iusu" required minlength="5" maxlength="15" placeholder="nome do usuário" >
+        </p>
+        <p>
+            
+            <label for="isen">Senha: </label>
+            <input type="password" name="sen" id="isen" required minlength="8">
+        </p>
+        <p> 
+        <!--para criar botões dinamicos voce só precisa destacar o tipo de botão com type e no value o que voce quer que ele esteja escrito-->
+            <input type="submit" value="Enviar">
+            <input type="reset" value="Limpar">
         </p>
     </form>
 </body>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>teste de formulario</h1>
+    <!--Para utilizar direito o auto complete, o certo é deixa-lo ativado na tag de função e depois ativar inline com a função especificada-->
+    <form action="cadastro.php" method="get" autocomplete="on"></form>
+    <p>
+        <label for="inome">Nome:</label>
+        <input type="text" name="nome" id="inome" required maxlength="30" placeholder="NOME COMPLETO" autocomplete="name">
+    </p>
+    <p>
+        <!--Em caso de numeros quebrados na hora de subir para o formulário o correto é usar "step" para poder haver quebra de numeros-->
+        <label for="media">média</label>
+        <input type="number" name="media" id="imedia" placeholder="Nota do aluno" min="0" max="10" step="0.5">
+    </p>
+    <p>
+        <input type="submit" value="enviar">
+        <input type="reset" value="limpar">
+    </p>
+</body>
+</html>
