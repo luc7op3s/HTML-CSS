@@ -6,13 +6,23 @@
     <title>formulario</title>
 </head>
 <body>
-    <form action="icadas">
+    <form action="icadas.php" method="get" autocomplete="on">
     <p>
         <label for="iname">Nome:</label>
-        <input type="text" name="iname" id="iname" autocomplete="name" placeholder="Nome completo" required >
+        <input type="text" name="name" id="iname" autocomplete="name" placeholder="Nome completo" required >
     </p>
     <p>
+        <label for="iadress">Endereço:</label>
+        <input type="text" name="address" id="iadress" placeholder="Endereço" autocomplete="address-level1" required>
+    </p>
+    <p>
+        <label for="imail">Email:</label>
+        <input type="email" name="email" id="imail" placeholder="E-mail" autocomplete="email" required>
+    </p>
+    
+    <p>
         <input type="submit" value="Enviar">
+        <input type="reset" value="Limpar">
     </p>
     </form>
 
