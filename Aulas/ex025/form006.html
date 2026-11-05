@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo de formulario</title>
+</head>
+<body>
+    <h1>Exemplo de formulário</h1>
+    <form action="cadastro.php" method="get" autocomplete="on">
+        <p>
+            
+        <!--abre uma paleta de cores
+        tag de controle "Value" porém é em exadecimal-->
+            <label for="icon">Cor:</label>
+            <input type="color" name="cor" id="icor" value="#00ff00">
+
+        </p>
+        <p>
+            <!--o Valor minimo e valor maximo são pre-definidos em 100, porém pdoe ser de 1 em 1 em casos de valores baixos
+            tag de controle inicial "Value"-->
+            <label for="inivel">Nível de Satisfação</label>
+            <input type="range" name="nivel" id="inivel" min="1" max="100">
+        </p>
+        <p>
+            <input type="submit" value="Enviar">
+            <input type="reset" value="Limpar">
+        </p>
+        <label for="ifoto">Foto do Perfil</label>
+        <input type="file" name="foto" id="ifoto">
+    </form>
+    
+</body>
+</html>
