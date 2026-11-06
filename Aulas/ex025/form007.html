@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>option</title>
+</head>
+<body>
+    <h1>Exemplo de Forrmulário</h1>
+    <!--Metodo get não pode haver mais que 3000 bytes, caso haja necessário trocar pelo metodo post-->
+    <form action="cadastro.php" method="post" autocomplete="on">
+        <p>
+            <label for="iest">Estado</label>
+            <select name="Estado" id="iest">
+                <option value="" selected>---escolha---</option>
+                <optgroup label="Região Sudeste">
+                    <option value="SP" >São Paulo</option>
+                    <option value="MG">Minas Gerais</option>
+                    <option value="RJ">Rio de Janeiro</option>
+                </optgroup>
+
+                <optgroup label="Região Nordeste">
+                    <option value="RN">Rio Grande do norte</option>
+                    <option value="PE">Pernambuco</option>
+                    <option value="MA">Maranhão</option>
+                </optgroup>
+            </select>
+
+        </p>
+
+        <p>
+            <label for="iprof">Profissão>: </label>
+            <input type="text" name="Prof" id="iprof" list="listprof>
+            <datalist id="listprof">
+                <option value="ADM">Administrador</option>
+                <option value="CONT">Contador</option>
+            </datalist>
+        </p>
+        <p>
+            <label for="imsg">Mensagem:</label>
+            <textarea name="Mensagem" id="imsg" cols="30" rows="10"></textarea>
+
+        </p>
+        
+        <p>
+            <input type="subimit" value="Enviar">
+            <input type="reset" value="Limpar">
+        </p>
+    </form>
+
+</body>
+</html>
