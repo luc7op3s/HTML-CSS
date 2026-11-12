@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularios</title>
+</head>
+<body>
+    <h1>Exemplo de Formulario</h1>
+    <form action="cadastro.php" method="get" autocomplete="on"></form>
+    <fieldset>
+        <legend>Sexo</legend>
+        <!--A principal diferença entre "radio" e Checkbox é que uma é feita para ser selecionada apenas uma vez
+        lembrando, SE O NOME DO RADIO NÃO ESTIVER IGUAL EM AMBAS, VOCE IRÁ CONSEGUIR SELECIONAR AMBAS
+        A TAG DE CONTROLE DE PRÉ SELEÇÃO É CHECKED-->
+        <input type="radio" name="Sexo" id="isexmas" checked><label for="isexmas">Masculino</label><br>
+        <input type="radio" name="Sexo" id="isexfem"><label for="isexfem">Feminino</label>
+    </fieldset>
+    <fieldset>
+        <legend>Esporte favorito</legend>
+        <input type="checkbox" name="basq" id="ibas"><label for="ibas">Basquete</label><br>
+        <input type="checkbox" name="fut" id="ifut"><label for="ifut">Futebol</label><br>
+        <input type="checkbox" name="nat" id="inat"><label for="inat">Natação</label><br>
+        <input type="checkbox" name="tenis" id="iteni"><label for="iteni">Tenis</label><br>
+    </fieldset>
+    <p>
+        <input type="submit" value="Enviar">
+        <input type="reset" value="Limpar">
+    </p>
+    
+</body>
+</html>
